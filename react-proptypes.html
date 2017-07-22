@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.bootcss.com/react/15.6.1/react.js"></script>
+  <script src="https://cdn.bootcss.com/react/15.6.1/react-dom.js"></script>
+  <script src="https://cdn.bootcss.com/babel-core/5.8.38/browser.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="d"></div>
+  <script type="text/babel">
+    var data = function () {
+      
+    };
+
+    var CommentBox = React.createClass({
+      propTypes:{
+        title:React.PropTypes.string.isRequired,
+      },
+      render:function(){
+        return (
+          <h1>{this.props.title}</h1>
+        )
+      }
+    })
+
+    ReactDOM.render(
+      <CommentBox title={data}/>,
+      document.getElementById('d')
+    )
+  </script>
+</body>
+</html>

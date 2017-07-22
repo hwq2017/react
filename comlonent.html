@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.bootcss.com/react/15.6.1/react.js"></script>
+  <script src="https://cdn.bootcss.com/react/15.6.1/react-dom.js"></script>
+  <script src="https://cdn.bootcss.com/babel-core/5.8.38/browser.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="d1">
+    <script type="text/babel">
+      class Clickbtn extends React.Component{
+        constructor(props){
+          super(props);
+          this.state = {value:"HTML5"};
+        }
+        componentWillMount(){
+          this.state = {value:"JS"};
+        }
+        componentDidMount(){
+          setTimeout(function() {
+        this.setState({value: 'test'})
+}, 1000) }
+        }
+        componentWillUpdate(){
+          this.state = {value:"React"};
+          console.log('componentWillUpdate');
+        }
+        render(){
+          var value = this.state.value;
+          return (
+             <div>
+               <button>click</button>
+               <h3>{this.state.value}</h3>
+             </div>
+          )
+        }
+      }
+      ReactDOM.render(
+      <Clickbtn />,
+      document.getElementById('d1')
+    );
+    </script>
+  </div>
+</body>
+
+</html>

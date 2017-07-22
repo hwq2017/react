@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.bootcss.com/react/15.6.1/react.js"></script>
+  <script src="https://cdn.bootcss.com/react/15.6.1/react-dom.js"></script>
+  <script src="https://cdn.bootcss.com/babel-core/5.8.38/browser.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="d1">
+    <script type="text/babel">
+
+     var Box = React.createClass({
+       render:function () {
+         return (
+           <div>
+              <button onClick = {this.props.updateStateProp}>点击</button>
+              <h3>{this.props.boxdata}</h3>
+           </div>
+         )
+       }
+     });
+      var CommentBox = React.createClass({
+        getInitialState:function () {
+          return {value:true};
+        },
+        handelChange:function () {
+          this.setState({value:!this.state.value})
+        },
+        render:function () {
+          var value = this.state.value? 'hhhh' : 'wwww';
+          return (
+            <div>
+              <Box updateStateProp = {this.handelChange}  boxdata = {value}></Box>
+            </div>
+          )
+        }
+      });
+      ReactDOM.render(
+      <CommentBox />,
+      document.getElementById('d1') // 只能用原生js获取 DOM 节点
+    );
+    </script>
+  </div>
+</body>
+
+</html>

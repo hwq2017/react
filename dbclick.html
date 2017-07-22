@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/react/15.6.1/react.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.6.1/react-dom.js"></script>
+    <script src="https://cdn.bootcss.com/babel-core/5.8.38/browser.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      var ColorClick = React.createClass({
+        getInitialState:function(){
+          return {flag:5};
+        },
+        handledbclick:function(){
+          if ((1 < this.state.flag) && (this.state.flag<=5)) {
+            this.state.flag--;
+            this.setState({flag:this.state.flag});
+            console.log(this.state.flag);
+          }else{
+            this.setState({flag:5});
+          }
+        },
+        render:function(){
+          // var value = this.state.flag? {color:'red'} : {color:'green'};
+          var flag = this.state.flag;
+          var value = '';
+          if (flag == 5) {
+           value = {color:'yellow'};
+        }else if (flag == 4) {
+           value = {color:'pink'};
+        }else if(flag == 3){
+          value = {color:'green'};
+        }else if(flag == 2){
+          value = {color:'blue'};
+        }else if(flag == 1){
+          value = {color:'orange'};
+        }
+          return (
+            <h1 onDoubleClick = {this.handledbclick} style = {value}>React React</h1>
+          )
+        }
+      });
+
+        ReactDOM.render(
+        <ColorClick />,
+        document.getElementById('root')
+      )
+    </script>
+  </body>
+</html>

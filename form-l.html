@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.bootcss.com/react/15.6.1/react.js"></script>
+  <script src="https://cdn.bootcss.com/react/15.6.1/react-dom.js"></script>
+  <script src="https://cdn.bootcss.com/babel-core/5.8.38/browser.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="d1">
+    <script type="text/babel">
+      class FormInput extends React.Component{
+        constructor(props){
+          super(props);
+          this.state = {n:null,number:0};
+        }
+        componentWillMount(){
+          this.state.n = '1234';
+        }
+        componentDidMount(){
+          console.log('===',this);
+          console.log('did mount');
+          setTimeout(function () {
+            this.setState({number:this.state.number + 1})
+          }.bind(this),1000);
+        }
+        componentWillUpdate(){
+          console.log('run componentWillUpdate');
+        }
+        componentDidUpdate(){
+          setTimeout(function () {
+            console.log('did update');
+
+          }.bind(this),2000);
+        }
+        submithandle(event){
+          event.preventDefault();
+          console.log('-----',this);
+          console.log(this.refs.name.value);
+          console.log(this.refs.passwd.value);
+          this.setState({n:this.refs.name.value})
+
+        }
+        render(){
+          return (
+            <form action="#" onSubmit = {this.submithandle.bind(this)}>
+              <label htmlFor="username">name:</label>
+              <input type="text" ref='name' id='username'/>
+              <br/><br/>
+              <label htmlFor="userpasswd">password:</label>
+              <input type="password" ref='passwd' id='userpasswd'/>
+              <br/><br/>
+              <button type='submit'>submit</button>
+              <h1>n:{this.state.n}</h1>
+              <h1>number:{this.state.number}</h1>
+            </form>
+          )
+        }
+      }
+      ReactDOM.render(
+        <FormInput></FormInput>,
+        document.getElementById('d1')
+      )
+    </script>
+  </div>
+</body>
+
+</html>

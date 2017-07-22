@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.bootcss.com/react/15.6.1/react.js"></script>
+  <script src="https://cdn.bootcss.com/react/15.6.1/react-dom.js"></script>
+  <script src="https://cdn.bootcss.com/babel-core/5.8.38/browser.js"></script>
+  <title>Document</title>
+  <style media="screen">
+    .i-style{
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <div id="dd"></div>
+  <script type="text/babel">
+
+   var Input = React.createClass({
+      getInitialState:function () {
+        return {values: '',value:'',panduan:false};
+      },
+     handleChange:function (event) {
+       this.setState({values : event.target.value});
+     },
+     handlechange:function (event) {
+       if (this.state.values == event.target.value && this.state.values) {
+         this.setState({value : event.target.value,panduan:true});
+       }else{
+         this.setState({value:event.target.value,panduan:false});
+       }
+     },
+     render:function () {
+      var text = this.state.values;
+      var text1 = this.state.value;
+      var tst = this.state.panduan ? <i className="i-style">ok</i> : <i></i>;
+      // if (text == text1 && text) {  //
+      //   tst = <i>ok</i>;
+      // }
+       return(
+         <div>
+           name:<input type="text" onChange = {this.handleChange}/>
+           <br/><br/>
+           age:<input type="text" onChange = {this.handlechange}/>
+           {tst}
+           <h1>name:{text}</h1>
+           <h1>age:{text1}</h1>
+         </div>
+       )
+     }
+   })
+   ReactDOM.render(
+     <Input />,
+     document.getElementById('dd')
+   )
+
+  </script>
+</body>
+</html>

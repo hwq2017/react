@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.bootcss.com/react/15.6.1/react.js"></script>
+  <script src="https://cdn.bootcss.com/react/15.6.1/react-dom.js"></script>
+  <script src="https://cdn.bootcss.com/babel-core/5.8.38/browser.js"></script>
+  <title>Document</title>
+  <style media="screen">
+    .mouse{
+      width: 200px;
+      height: 200px;
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <div id="dd"></div>
+  <script type="text/babel">
+
+  var MouseMove = React.createClass({
+    getInitialState:function () {
+      return {moveX:0,moveY:0};
+    },
+    handlemousemove:function (event) {
+      this.setState({moveX:event.pageX,moveY:event.clientY});
+    },
+
+    render:function () {
+      var mousemoveX = this.state.moveX;
+      var mousemoveY = this.state.moveY;
+      return (
+        <div onMouseMove = {this.handlemousemove} className="mouse">
+          <h1>X:{mousemoveX}  Y:{mousemoveY}</h1>
+        </div>
+      )
+    }
+  })
+
+   ReactDOM.render(
+     <MouseMove />,
+     document.getElementById('dd')
+   )
+
+  </script>
+</body>
+</html>

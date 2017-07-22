@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.bootcss.com/react/15.6.1/react.js"></script>
+  <script src="https://cdn.bootcss.com/react/15.6.1/react-dom.js"></script>
+  <script src="https://cdn.bootcss.com/babel-core/5.8.38/browser.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="d1">
+    <script type="text/babel">
+     class Input extends React.Component{
+       clickhandle(){
+         this.refs.inputfocus.focus();
+       }
+       render(){
+         return (
+           <div>
+              <input type="text" ref='inputfocus'/>
+              <input type="text" defaultValue='点击获取焦点' onClick = {this.clickhandle.bind(this)}/>
+           </div>
+         )
+       }
+     }
+     ReactDOM.render(
+       <Input />,
+       document.getElementById('d1')
+     )
+    </script>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	</head>
+
+	<body>
+		<button class="btn">想我吗？想就点哦！</button>
+		<script type="text/javascript">
+			$(function() {
+				var times=null;
+				$(".btn").click(function(){
+					clearTimeout(times);
+					times=setTimeout(function(){
+						console.log(1);
+					},300);
+				});
+				$(".btn").dblclick(function(){
+					clearTimeout(times);
+					console.log(2);
+				});
+			});
+		</script>
+	</body>
+
+</html>

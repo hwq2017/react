@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.bootcss.com/react/15.6.1/react.js"></script>
+  <script src="https://cdn.bootcss.com/react/15.6.1/react-dom.js"></script>
+  <script src="https://cdn.bootcss.com/babel-core/5.8.38/browser.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="d1">
+    <script type="text/babel">
+      class Hello extends React.Component{
+        constructor(props){
+          super(props);
+          this.state = {value:'html'}
+          alert('hello');
+        }
+        // componentWillMount(){
+        //   this.state = {value:'http'}
+        //   alert('componentWillMount')
+        // }
+        clickhandle(){
+          this.setState({value:'dom'})
+        }
+        render(){
+          alert('render');
+
+          return (
+            <div>
+              <h1 onClick = {this.clickhandle}>hello world!{this.state.value}</h1>
+            </div>
+          )
+        }
+        componentDidMount(){
+          alert('componentDidMount')
+        }
+      }
+      ReactDOM.render(
+        <Hello />,
+        document.getElementById('d1')
+      )
+    </script>
+  </div>
+</body>
+
+</html>
